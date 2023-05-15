@@ -4,21 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.balmes.repository.CursRepository;
+import com.balmes.repository.EstudiantRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.balmes.model.Curs;
-import com.balmes.repository.cursRepository;
+import com.balmes.repository.CursRepository;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
+
 public class cursService implements crudService<Curs> {
 
-/*	
+
 	private List<Curs> cursos;
 	
 	public cursService() {
 		cursos = new ArrayList<Curs>();
 
-//instancio dos cursos i els afegiré a la llista
+//instancio dos cursos i els afegirï¿½ a la llista
 		Curs accesADades = new Curs(1, "Modul 6","Acces a dades",
 				"https://ioc.xtec.cat/materials/FP/Recursos/fp_dam_m06_/web/fp_dam_m06_htmlindex/index.html");
 		
@@ -29,16 +34,19 @@ public class cursService implements crudService<Curs> {
 		cursos.add(programacioMultimedia);
 		
 	}
-*/
-	
-	private cursRepository repositori;	
+
+	@Autowired
+	private CursRepository repositori;
+	@Autowired
+	private EstudiantRepository estudiantRepository;
+
 /*	
 	public cursService() {
 		repositori = new cursRepository();
 }
 */
 	
-	public cursService(cursRepository cursRepository) {
+	public cursService(CursRepository cursRepository) {
 		repositori = cursRepository;
 	}
 	
